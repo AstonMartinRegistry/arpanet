@@ -7,6 +7,7 @@ An interactive isometric view of two lab machines (rtx-01 and v100-01) on an Age
 4. v100-01's agent answers from the one collection rtx-01 may read.
 
 It matches AgentArpanet v0.6:
+- **Every node runs its own opencode instance**, drawn as a screen in front of each machine. That's how each lab's people use the network: rtx-01's owner asks rtx-01's opencode, and labs reach each other only through their nodes' agents.
 - **The owner's agent is opencode**, running on the node's own model. It reaches the node through the MCP server on `127.0.0.1:8091`.
 - **Admin happens only in the dashboard** (`127.0.0.1:8092`) or with `./agentnet`.
 - **Nodes talk [A2A 1.0](https://a2a-protocol.org)** (JSON-RPC at `:9000/a2a`), and nothing else. rtx-01 reads v100-01's extended Agent Card, then asks as a streamed task; the answer is the task's artifact.
