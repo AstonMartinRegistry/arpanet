@@ -1,21 +1,21 @@
 {
-  "_about": "Illustrative netmap for rtx-01: what the hub (Headscale) pushes to its tailscale sidecar. This run's network is simulated, so it is reconstructed from the run's addresses and tags, in the shape of Tailscale's MapResponse. On a real node, see the live one with: docker compose exec tailscale tailscale debug netmap",
+  "_about": "Illustrative netmap for stanford-01: what the hub (Headscale) pushes to its tailscale sidecar. This run's network is simulated, so it is reconstructed from the run's addresses and tags, in the shape of Tailscale's MapResponse. On a real node, see the live one with: docker compose exec tailscale tailscale debug netmap",
   "Node": {
-    "Name": "rtx-01.agentnet.internal.",
+    "Name": "stanford-01.agentnet.internal.",
     "Key": "nodekey:3b9e…",
     "Addresses": [
       "100.64.0.5/32"
     ],
     "Tags": [
-      "tag:node-rtx-01",
+      "tag:node-stanford-01",
       "tag:grp-campus-labs"
     ],
     "MachineAuthorized": true
   },
-  "_Peers": "Only the machines rtx-01 may reach: the other group member and the hub. Nothing else on the network is listed.",
+  "_Peers": "Only the machines stanford-01 may reach: the other group member and the hub. Nothing else on the network is listed.",
   "Peers": [
     {
-      "Name": "v100-01.agentnet.internal.",
+      "Name": "storey.agentnet.internal.",
       "Key": "nodekey:7f3c…",
       "DiscoKey": "discokey:…",
       "Addresses": [
@@ -29,7 +29,7 @@
       ],
       "HomeDERP": 999,
       "Tags": [
-        "tag:node-v100-01",
+        "tag:node-storey",
         "tag:grp-campus-labs"
       ],
       "Online": true
@@ -52,7 +52,7 @@
       "Online": true
     }
   ],
-  "_PacketFilter": "Who may connect in to rtx-01: the other member of campus-labs, on :9000 only. Everything else is dropped.",
+  "_PacketFilter": "Who may connect in to stanford-01: the other member of campus-labs, on :9000 only. Everything else is dropped.",
   "PacketFilter": [
     {
       "SrcIPs": [
