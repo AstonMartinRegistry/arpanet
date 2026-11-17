@@ -1,6 +1,6 @@
 # AgentArpanet visualization
 
-An interactive isometric view of two lab machines (Stanford-01 and Storey) on an AgentArpanet network. It shows the hub, the WireGuard tunnel, and each node's parts: node-agent, the dashboard, the tailscale sidecar, the model and the collections. A walkthrough follows one question step by step:
+An interactive isometric view of two lab machines (Stanford-01 and Storey) on an AgentArpanet network. It shows the hub, the WireGuard tunnel, and each node's parts: node-agent, the tailscale sidecar, the model, the collections and `policy.yaml`. A walkthrough follows one question step by step:
 1. On Stanford-01's host, its owner asks their agent in opencode.
 2. opencode's model searches Stanford-01's notes and finds the labs it can reach, through node-agent's MCP server.
 3. It asks Storey's agent with `ask_peer`, which sends an A2A task to Storey.
