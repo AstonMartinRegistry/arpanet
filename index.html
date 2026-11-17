@@ -58,6 +58,17 @@ main { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
 .legend div { display: flex; align-items: center; gap: 10px; }
 .legend svg { width: 26px; height: 6px; }
 .hint { right: 16px; bottom: 14px; text-align: right; }
+/* sign-up link: top right on the home screen; during the walkthrough it moves left of the step panel */
+.join { position: absolute; z-index: 1000; top: 12px; right: max(16px, env(safe-area-inset-right, 0px)); display: inline-flex; align-items: center; gap: 9px; height: 30px; padding: 0 13px 0 12px; border: 1px solid var(--line-2); border-radius: 999px; background: rgba(8,8,8,.85); color: var(--fg); font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: border-color .2s, background .2s; }
+.join:hover { border-color: var(--mid); background: #111; }
+.join .dot { width: 6px; height: 6px; border-radius: 50%; background: #3d9bff; box-shadow: 0 0 8px #3d9bff; animation: joinpulse 2.4s ease-in-out infinite; }
+.join svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.6; color: var(--mid); }
+.join:hover svg { color: var(--fg); }
+@keyframes joinpulse { 50% { opacity: .35; box-shadow: 0 0 2px #3d9bff; } }
+.app:not(.ov) .join { right: calc(var(--panel-w) + 32px); }
+.app.ov.peek .join { display: none; }   /* the part card takes the corner */
+@media (prefers-reduced-motion: reduce) { .join .dot { animation: none; } }
+@media (max-width: 560px) { .join .long { display: none; } }
 
 /* overview: only the drawing and a play button */
 .app.ov main { grid-template-columns: minmax(0, 1fr); }
@@ -264,6 +275,7 @@ table.spec td:last-child { font-family: var(--f-mono); font-size: 11px; color: v
   .panel { left: 16px; width: auto; top: auto; bottom: calc(var(--dock-h, 96px) + 28px); max-height: 42vh; }
   .dock { right: 16px; }
   .bar .note, .hint { display: none; }
+  .app:not(.ov) .join { right: 16px; }
   .panel-inner { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 }
 @media (prefers-reduced-motion: reduce) { .lbl { transition: none; } }
@@ -276,6 +288,7 @@ table.spec td:last-child { font-family: var(--f-mono); font-size: 11px; color: v
         <div id="labels"></div>
         <div class="overlay fig" id="fig"><div><b>AgentArpanet</b> vp1</div></div>
         <div class="overlay legend" id="legend" aria-label="Line styles"></div>
+        <a class="join" href="https://docs.google.com/forms/d/e/1FAIpQLSeFAUklDZBL0I2hDybApBWRhBGrG2JXgIxexRmfueRpdjW-uQ/viewform" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>Join<span class="long">&nbsp;the network</span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5"/></svg></a>
         <div class="start" id="start">
           <div class="composer" id="composer">
             <div class="c-text"><div class="c-line"><span id="c-typed"></span><span class="caret" aria-hidden="true"></span></div></div>
